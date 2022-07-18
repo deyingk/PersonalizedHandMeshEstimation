@@ -1,5 +1,5 @@
 
-# Camera-Space Hand Mesh Recovery via Semantic Aggregation and Adaptive 2D-1D Registration
+# Identity-Aware Hand Mesh Estimation and Personalization from RGB Images
 
 <p align="center">
 <img src="./images/demo.jpg" width="672" height="448">  
@@ -10,7 +10,7 @@
 </p>
 
 ## Introduction
-This repo is the PyTorch implementation of CVPR2021 paper "Camera-Space Hand Mesh Recovery via Semantic Aggregationand Adaptive 2D-1D Registration". You can find this paper from [this link](https://arxiv.org/pdf/2103.02845.pdf).
+This repo is the PyTorch implementation of CVPR2021 paper "Camera-Space Hand Mesh Recovery via Semantic Aggregationand Adaptive 2D-1D Registration". You can find this paper from [Link not posted yet]().
 
 ## Install 
 + Environment
@@ -33,7 +33,7 @@ This repo is the PyTorch implementation of CVPR2021 paper "Camera-Space Hand Mes
   out/FreiHAND/cmr_pg/checkpoints/cmr_pg_res18_freihand.pt
   ``` 
 
-
+Identity-Aware Hand Mesh Estimation and Personalization from RGB ImagesIdentity-Aware Hand Mesh Estimation and Personalization from RGB Images
 ## Run a demo
 ```
 ./scripts/demo.sh
@@ -41,13 +41,15 @@ This repo is the PyTorch implementation of CVPR2021 paper "Camera-Space Hand Mes
 The prediction results will be saved in `out/FreiHAND/cmr_pg/demo` 
 
 ## Dataset
-#### FreiHAND
+#### Dex_YCB
 + Please download FreiHAND dataset from [this link](https://lmb.informatik.uni-freiburg.de/projects/freihand/), and create a soft link in `data`, i.e., `data/FreiHAND`.
 + Downdownload mesh GT file form [this link](https://drive.google.com/file/d/1hutsbecc0eFWZFvPclBso9IfYWcVM3iF/view?usp=sharing), and unzip it under `data/FreiHAND/training`
 ```  
-${ROOT}  
-|-- data  
-|   |-- FreiHAND
+${ROOT} 
+|-- conv
+|   |-- ...
+|-- data
+|   |-- dex_ycb
 |   |   |-- training
 |   |   |   |-- rgb
 |   |   |   |-- mask
@@ -60,6 +62,21 @@ ${ROOT}
 |   |   |-- training_K.json
 |   |   |-- training_mano.json
 |   |   |-- training_xyz.json
+|-- datasets
+|   |-- dex_ycb
+|   |   |-- ...
+|-- options
+|-- out
+|-- scripts
+|-- src
+|-- template
+|   |-- dex_ycb_j_regressor.npy
+|   |-- MANO_RIGHT.pkl
+|   |-- template.ply 
+|   |-- transform.pkl
+|-- utils
+|   |-- ...
+|-- ....py
 ```  
 
 ## Evaluation
@@ -88,13 +105,15 @@ ${ROOT}
 ```
 ## Reference
 ```tex
-@inproceedings{bib:CMR,
-  title={Camera-Space Hand Mesh Recovery via Semantic Aggregationand Adaptive 2D-1D Registration},
-  author={Chen, Xingyu and Liu, Yufeng and Ma, Chongyang and Chang, Jianlong and Wang, Huayan and Chen, Tian and Guo, Xiaoyan and Wan, Pengfei and Zheng, Wen},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2021}
-}
+
 ```
 
 ## Acknowledgement
-Our implementation of SpiralConv is based on [spiralnet_plus](https://github.com/sw-gong/spiralnet_plus?utm_source=catalyzex.com).
+Our implementation is developed with the help of the following open sourced projects:
+
++ [spiralnet_plus](https://github.com/sw-gong/spiralnet_plus?utm_source=catalyzex.com).
++ [CMR]()
++ [Boukhayam's MANO-based Model]()
++ [Metro]()
+
+Please also consider cite the above papers, without whose help this project is almost impossible.
