@@ -125,7 +125,7 @@ ${ROOT}
   python mis_dex_ycb_get_predictions_2d.py
   ```
   Run optimization and evaluate at the same time.
-  
+
   a) Baseline performance
     ```
     python optimization_dex_ycb_baseline.py
@@ -139,29 +139,6 @@ ${ROOT}
     python optimization_dex_ycb_ours_with_calibrated_hand_shape.py
     ```
 
-
-
-
-
-+ JSON file will be saved as `out/FreiHAND/cmr_sg/cmr_sg.josn`. You can submmit this file to the [official server](https://competitions.codalab.org/competitions/21238) for evaluation.
-+ If you want to save prediction results like above demo, you would want to uncomment Line 170 in `run.py`. The prediction results will be saved in `out/FreiHAND/cmr_sg/eval`.
-
-## Explaination of the output
-
-<p align="middle">  
-<img src="./images/2299_plot.jpg">  
-</p> 
-
-+ In an JPEG file (e.g., 000_plot.jpg), we show silhouette, 2D pose, projection of mesh, camera-space mesh and pose
-+ As for camera-space information, we use a red rectangle to indicate the camera position, or the image plane. The unit is meter.
-+ If you run the demo, you can also obtain a PLY file (e.g., 000_mesh.ply). 
-    + This file is a 3D model of the hand.
-    + You can open it with corresponding software (e.g., Preview in Mac).
-    + Here, you can get more 3D details through rotation and zoom in.
-
-## Training
-```
-./scripts/train_freihand.sh
 ```
 ## Reference
 ```tex
