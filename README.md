@@ -79,10 +79,67 @@ ${ROOT}
 |-- ....py
 ```  
 
-## Evaluation
+## Reproducing the baseline and our method.
++ Train the baseline model.
 ```
-./scripts/eval_freihand.sh
+./scripts/train_dex_ycb_mano_based_baseline.sh
 ```
++ Train the our model with ground truth hand shape.
+```
+./scripts/train_dex_ycb_mano_based_our_model_with_gt_shape.sh
+```
++ Train baseline with confidence branch. (only train the confidence branch, other parts are frozen).
+```
+./scripts/train_dex_ycb_mano_based_conf_branch.sh
+```
++ Run hand shape calibration.
+
+  a) Get results from the baseline model
+    ```
+    python mis_dex_ycb_get_predictions_baseline_with_conf.py
+    ```
+  b) Perform calibration
+    ```
+    python calibrate_from_shape_params.py
+    ```
++ Evaluate the performance without optimizatin module.
+
+  a) Baseline performance
+    ```
+    ./scripst/eval_dex_ycb_mano_based_baseline.sh
+    ```
+  b) Our model when fed with groundtruth hand shape
+    ```
+    ./scripst/eval_dex_ycb_ours_gt_hand_shape.sh
+    ```
+  c) Our model when fed with calibrated hand shape
+    ```
+    ./scripts/eval_dex_ycb_ours_calibrated_hand_shape.sh
+    ```
++ Optimizatin module during inference.
+
+  Get 2d predictions.
+  ```
+  python mis_dex_ycb_get_predictions_2d.py
+  ```
+  Run optimization and evaluate at the same time.
+  a) Baseline performance
+    ```
+    python optimization_dex_ycb_baseline.py
+    ```
+  b) Our model when fed with groundtruth hand shape
+    ```
+    python optimization_dex_ycb_ours_with_gt_hand_shape.py
+    ```
+  c) Our model when fed with calibrated hand shape
+    ```
+    python optimization_dex_ycb_ours_with_calibrated_hand_shape.py
+    ```
+
+
+
+
+
 + JSON file will be saved as `out/FreiHAND/cmr_sg/cmr_sg.josn`. You can submmit this file to the [official server](https://competitions.codalab.org/competitions/21238) for evaluation.
 + If you want to save prediction results like above demo, you would want to uncomment Line 170 in `run.py`. The prediction results will be saved in `out/FreiHAND/cmr_sg/eval`.
 
