@@ -80,18 +80,20 @@ ${ROOT}
 ```  
 
 ## Reproducing the baseline and our method.
-+ Train the baseline model.
-```
-./scripts/train_dex_ycb_mano_based_baseline.sh
-```
-+ Train the our model with ground truth hand shape.
-```
-./scripts/train_dex_ycb_mano_based_our_model_with_gt_shape.sh
-```
-+ Train baseline with confidence branch. (only train the confidence branch, other parts are frozen).
-```
-./scripts/train_dex_ycb_mano_based_conf_branch.sh
-```
++ Training 
+  
+  a) Train the baseline model.
+  ```
+  ./scripts/train_dex_ycb_mano_based_baseline.sh
+  ```
+  b) Train the our model with ground truth hand shape.
+  ```
+  ./scripts/train_dex_ycb_mano_based_our_model_with_gt_shape.sh
+  ```
+  c) Train baseline with confidence branch. (only train the confidence branch, other parts are frozen).
+  ```
+  ./scripts/train_dex_ycb_mano_based_conf_branch.sh
+  ```
 + Run hand shape calibration.
 
   a) Get results from the baseline model
@@ -123,6 +125,7 @@ ${ROOT}
   python mis_dex_ycb_get_predictions_2d.py
   ```
   Run optimization and evaluate at the same time.
+  
   a) Baseline performance
     ```
     python optimization_dex_ycb_baseline.py
