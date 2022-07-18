@@ -33,7 +33,7 @@ class DEX_YCB(data.Dataset):
         self.use_small_set = args.humbi_use_small
         self.use_world_or_cam = args.dex_ycb_use_world_or_cam
         assert self.use_world_or_cam in ('world', 'cam')
-        if args.template_mode not in ('groundtruth', 'mean_shape','calibrated','random'):
+        if args.template_mode not in ('groundtruth','calibrated','random'):
             raise "Not implemented for this specific template mode!"
 
         print('dataset template mode is ', self.template_mode)
@@ -119,9 +119,6 @@ class DEX_YCB(data.Dataset):
         xyz = (xyz - xyz_root) / self.std
 
         translation = mano[48:51]
-        # xyz_provided = xyz_provided - xyz_provided[0]
-        # print('xyz_provided', xyz_provided)
-        # print('translation', translation)
         xyz_provided = (xyz_provided - translation[np.newaxis, :]) / self.std
 
         v0 = (v0 - translation[np.newaxis, :]) / self.std
@@ -137,8 +134,6 @@ class DEX_YCB(data.Dataset):
         # get rest_pose_template 
         if self.template_mode == 'groundtruth':
             template_v0 = torch.from_numpy(self.rest_pose_templates[subject_id]).float() / self.std
-        elif self.template_mode == 'mean_shape':
-            template_v0 = torch.from_numpy(self.rest_pose_templates['mean_shape']).float() / self.std
         if self.ms:
             template_v1 = Pool(template_v0.unsqueeze(0), self.down_sample_list[0])[0]
             template_v2 = Pool(template_v1.unsqueeze(0), self.down_sample_list[1])[0]
@@ -214,8 +209,6 @@ class DEX_YCB(data.Dataset):
             template_v0 = torch.from_numpy(self.rest_pose_templates[subject_id]).float() / self.std
         elif self.template_mode == 'random':
             template_v0 = torch.from_numpy(self.rest_pose_templates[subject_id]).float() / self.std 
-        elif self.template_mode == 'mean_shape':
-            template_v0 = torch.from_numpy(self.rest_pose_templates['mean_shape']).float() / self.std
         if self.ms:
             template_v1 = Pool(template_v0.unsqueeze(0), self.down_sample_list[0])[0]
             template_v2 = Pool(template_v1.unsqueeze(0), self.down_sample_list[1])[0]

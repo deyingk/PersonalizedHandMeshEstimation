@@ -30,11 +30,6 @@ for file_name in os.listdir(annotation_path):
     out_mesh, joints = mano_layer(pose, shape)
     rest_pose_template[subject] = out_mesh.squeeze().numpy()/1000 # rescale to meter
 
-# also add mean shape to the dictionary
-mean_shape = torch.zeros(1, 10)
-pose = torch.zeros(1, 20+3)
-out_mesh, joints = mano_layer(pose, mean_shape)
-rest_pose_template['mean_shape'] = out_mesh.squeeze().numpy()/1000
 with open(os.path.join(data_dir, 'split_annotations', 'rest_pose_template.pkl'), 'wb') as f:
     pickle.dump(rest_pose_template,f)
 
