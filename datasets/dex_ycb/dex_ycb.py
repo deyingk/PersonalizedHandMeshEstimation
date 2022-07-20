@@ -30,7 +30,6 @@ class DEX_YCB(data.Dataset):
         self.color_aug = Augmentation(size=self.size) if args.color_aug and 'train' in self.phase else None
         self.std = torch.tensor(0.20)
         self.template_mode = args.template_mode
-        self.use_small_set = args.humbi_use_small
         self.use_world_or_cam = args.dex_ycb_use_world_or_cam
         assert self.use_world_or_cam in ('world', 'cam')
         if args.template_mode not in ('groundtruth','calibrated','random'):
