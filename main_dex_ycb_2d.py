@@ -2,13 +2,11 @@ import os
 import os.path as osp
 import torch
 import torch.backends.cudnn as cudnn
-from src.cmr_pg_pp import CMR_PG_PP
 from src.mano_based_model import *
 from src.cmr_2d_pose import *
 from utils.read import spiral_tramsform
 from utils import utils, writer
 from options.base_options import BaseOptions
-from datasets.humbi.humbi import HUMBI, HUMBI_Group
 from datasets.dex_ycb.dex_ycb import DEX_YCB
 from torch.utils.data import DataLoader
 # from run_dex_ycb import Runner

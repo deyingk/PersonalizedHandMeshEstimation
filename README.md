@@ -1,6 +1,6 @@
 
 # Identity-Aware Hand Mesh Estimation and Personalization from RGB Images
-
+\[ECCV2022\] "Identity-Aware Hand Mesh Estimation and Personalization from RGB Images".
 
 <p align="center">
 <img src="./readme_images/fig_1.png" >

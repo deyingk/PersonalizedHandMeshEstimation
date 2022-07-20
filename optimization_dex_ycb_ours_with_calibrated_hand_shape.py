@@ -19,7 +19,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-from cmr.rotation_conversions import *
+from src.rotation_conversions import *
 
 def make_folder(folder_name):
     if not os.path.exists(folder_name):

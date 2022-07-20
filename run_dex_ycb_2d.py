@@ -3,7 +3,7 @@ import torch
 from utils.vis import cnt_area
 import numpy as np
 import cv2
-from utils.vis import registration, map2uv, inv_base_tranmsform, base_transform, tensor2array
+from utils.vis import registration, map2uv, base_transform, tensor2array
 from utils.draw3d import save_a_image_with_mesh_joints
 from utils.read import save_mesh
 import json
