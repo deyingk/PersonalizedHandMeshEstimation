@@ -8,7 +8,7 @@
 
 ## Introduction
 This repo is the PyTorch implementation of ECCV2022 paper "Identity-Aware Hand Mesh Estimation and Personalization from RGB Images". 
-You can find this paper from [paper link not posted yet](https://arxiv.org/pdf/2209.10840.pdf).
+You can find this paper from [paper link](https://arxiv.org/pdf/2209.10840.pdf).
 
 ## Install 
 + Environment for IDentity-Aware Hand Mesh Estimation (IdHandMesh)
