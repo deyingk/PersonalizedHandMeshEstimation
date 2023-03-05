@@ -159,7 +159,13 @@ run the following scripts to process the data.
 ## Reference
 
   ```
-  Bibtex not up yet.
+  @inproceedings{kong2022identity,
+  title={Identity-Aware Hand Mesh Estimation and Personalization from RGB Images},
+  author={Kong, Deying and Zhang, Linguang and Chen, Liangjian and Ma, Haoyu and Yan, Xiangyi and Sun, Shanlin and Liu, Xingwei and Han, Kun and Xie, Xiaohui},
+  booktitle={Computer Vision--ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23--27, 2022, Proceedings, Part V},
+  pages={536--553},
+  year={2022}
+}
   ```
 
 ## Acknowledgement
